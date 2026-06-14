@@ -1,0 +1,71 @@
+.social-container{
+    display: flex;
+    gap:20px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    padding: 10px;
+    
+}
+.social-container a{
+    background-color: white;
+    padding: 1em;
+    border-radius: 50%;
+    height: 64px;
+    width: 64px;
+    box-sizing: border-box;
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.5);
+    transition: 200ms cubic-bezier(.42,0,.44,1.68);
+}
+
+.social-container a svg{
+    height: 32px;
+}
+
+.social-container a::before{
+    content: attr(data-social);
+    position: absolute;
+    background-color: var(--accent-color);
+    color: white;
+    padding: 0.5em 1em;
+    border-radius: 100px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.5);
+    transform: translateY(-30px) rotate(25deg);
+    opacity: 0;
+    transition: 200ms cubic-bezier(.42,0,.44,1.68);
+}
+
+.social-container a:hover{
+    background-color: var(--accent-color);
+    fill: white;
+}
+
+.social-container a:hover svg{
+    fill: white;
+}
+.social-container a::after{
+    content: '';
+    position: absolute;
+    height: 0;
+    width: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 10px solid var(--accent-color);
+    transform: translateY(0) rotate(25deg);
+    opacity: 0;
+    transition: 200ms cubic-bezier(.42,0,.44,1.68);
+}
+
+.social-container a:hover::before{
+    transform: translateY(-65px) rotate(0);
+    opacity: 1;
+}
+
+.social-container a:hover::after{
+    transform: translateY(-42px) rotate(0);
+    opacity: 1;
+}
